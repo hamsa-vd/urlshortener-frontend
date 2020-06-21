@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "urlshortener-frontend"
+    }
+  },
+  "defaultProject": "urlshortener-frontend",
+  "cli": {
+    "analytics": "d6b6f001-8dcf-47ce-8dc5-21be6df3759a"
+  }
 }

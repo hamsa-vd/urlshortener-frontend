@@ -1,0 +1,17 @@
+.parent_register {
+	.container-fluid {
+		display: grid;
+		place-items: center;
+		min-height: 100vh;
+		background-color: rgb(1, 21, 22);
+	}
+	small {
+		display: block;
+		width: 100vw;
+		color: white;
+	}
+	a {
+		text-decoration: none;
+		color: inherit;
+	}
+}

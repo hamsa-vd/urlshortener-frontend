@@ -1,0 +1,27 @@
+<div class="parent_login">
+    <div class="container-fluid">
+        <div class="col-sm-10 col-lg-4">
+            <div class="row justify-content-around">
+                <div class="input-group mb-3">
+                    <small>all fields are required</small>
+                    <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">username</span>
+                    </div>
+                    <input type="text" class="form-control"  aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">password</span>
+                    </div>
+                    <input type="password" class="form-control"  aria-label="password" aria-describedby="basic-addon1">
+                </div>
+                <button class="btn btn-outline-light px-4">
+                    <a [routerLink]="[ '']">login</a>
+                </button>
+                <button class="btn btn-outline-light px-4">
+                    <a [routerLink]="[ '/passwordnew']">forgot password</a>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
