@@ -15,7 +15,7 @@ export class ActivateComponent implements OnInit {
 	ngOnInit(): void {
 		const id = this.route.params['value']['id'];
 		this.http
-			.get(`https://urlshortener-backend.herokuapp.com/api/activate/${id}`)
+			.get(`http://localhost:3000/api/activate/${id}`)
 			.subscribe((v) => this.toastr.success(v['msg']), (err) => this.toastr.error(err.error['msg']));
 	}
 }

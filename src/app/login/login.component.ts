@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
 		console.log(this.logindata.value);
 		if (this.logindata.valid) {
 			let body = this.logindata.value;
-			this.http.post('https://urlshortener-backend.herokuapp.com/api/login', body).subscribe(
+			this.http.post('http://localhost:3000/api/login', body).subscribe(
 				(v) => {
 					localStorage.setItem('token', v['data']['token']);
 					localStorage.setItem('username', v['data']['username']);

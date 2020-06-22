@@ -14,7 +14,7 @@ export class ForgotComponent implements OnInit {
 	change() {
 		if (this.email.valid)
 			this.http
-				.post('https://urlshortener-backend.herokuapp.com/api/forgot', { email: this.email.value })
+				.post('http://localhost:3000/api/forgot', { email: this.email.value })
 				.subscribe(
 					(v) => this.toastr.success(v['msg'], 'check mail'),
 					(err) => this.toastr.error(err['error']['msg'])
