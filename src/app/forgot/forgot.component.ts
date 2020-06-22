@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { FormControl, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
 	selector: 'app-forgot',
@@ -7,10 +9,17 @@ import { HttpClient } from '@angular/common/http';
 	styleUrls: [ './forgot.component.scss' ]
 })
 export class ForgotComponent implements OnInit {
-	constructor(private http: HttpClient) {}
-
+	constructor(private http: HttpClient, private toastr: ToastrService) {}
+	email = new FormControl('', Validators.required);
 	change() {
-		this.http.get('http://localhost:3000/api/activate').subscribe((v) => console.log(v), (err) => console.log(err));
+		if (this.email.valid)
+			this.http
+				.post('http://localhost:3000/api/forgot', { email: this.email.value })
+				.subscribe(
+					(v) => this.toastr.success(v['msg'], 'check mail'),
+					(err) => this.toastr.error(err['error']['msg'])
+				);
+		else this.toastr.warning('must enter email');
 	}
 	ngOnInit(): void {}
 }

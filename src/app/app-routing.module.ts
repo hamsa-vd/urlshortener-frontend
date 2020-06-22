@@ -7,6 +7,7 @@ import { ForgotComponent } from './forgot/forgot.component';
 import { NewPasswordComponent } from './new-password/new-password.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ActivateComponent } from './activate/activate.component';
+import { LoginAuthGuard } from './login-auth.guard';
 
 const routes: Routes = [
 	{
@@ -31,7 +32,8 @@ const routes: Routes = [
 	},
 	{
 		path: 'dashboard',
-		component: DashboardComponent
+		component: DashboardComponent,
+		canActivate: [ LoginAuthGuard ]
 	},
 	{
 		path: 'activate/:id',

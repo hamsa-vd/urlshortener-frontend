@@ -13,7 +13,9 @@ import { NewPasswordComponent } from './new-password/new-password.component';
 import { RegisterComponent } from './register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { LoginAuthGuard } from './login-auth.guard';
 @NgModule({
 	declarations: [
 		AppComponent,
@@ -25,8 +27,17 @@ import { HttpClientModule } from '@angular/common/http';
 		NewPasswordComponent,
 		RegisterComponent
 	],
-	imports: [ BrowserModule, AppRoutingModule, NgbModule, FormsModule, ReactiveFormsModule, HttpClientModule ],
-	providers: [],
+	imports: [
+		BrowserModule,
+		AppRoutingModule,
+		NgbModule,
+		FormsModule,
+		ReactiveFormsModule,
+		HttpClientModule,
+		BrowserAnimationsModule,
+		ToastrModule.forRoot()
+	],
+	providers: [ LoginAuthGuard ],
 	bootstrap: [ AppComponent ]
 })
 export class AppModule {}

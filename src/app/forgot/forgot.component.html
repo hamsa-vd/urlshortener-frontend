@@ -5,9 +5,9 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="basic-addon1">@</span>
                 </div>
-                <input type="email" class="form-control" placeholder="email" aria-label="email" aria-describedby="basic-addon1">
+                <input type="email" name="email" class="form-control" placeholder="email" aria-label="email" aria-describedby="basic-addon1" [formControl]="email">
             </div>      
-            <button class="btn btn-outline-light" (click)="change">change password</button>
+            <button class="btn btn-outline-light" (click)="change()">change password</button>
         </div>
     </div>
 </div>

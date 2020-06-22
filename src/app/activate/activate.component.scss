@@ -1,0 +1,21 @@
+.parent-activate {
+	min-height: 100vh;
+	display: grid;
+	place-items: center;
+	background-color: rgb(162, 0, 255);
+	button {
+		padding: 2rem 5rem;
+		font-size: 2.4rem;
+		background-color: mediumseagreen;
+		color: white;
+		border: none;
+		border-radius: 1rem;
+		a {
+			text-decoration: none;
+			color: inherit;
+		}
+		&:active {
+			transform: scale(0.8);
+		}
+	}
+}

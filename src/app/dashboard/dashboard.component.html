@@ -4,21 +4,21 @@
             Url Shortener
         </h2>
         <h2 class="m-1">
-            Hamsa Vardhan
+            {{username}}
         </h2>
-        <button class="btn btn-outline-danger m-2">
-            logout  
+        <button class="btn btn-outline-danger m-2" (click)="logout()">
+            Logout
         </button>
     </nav>
 </header>
 <div class="parent-dashboard container h-100 mt-lg-5">
     <div class="input-group my-5 row col-sm-12 col-md-10 col-lg-8 offset-md-1 offset-lg-2">
-        <input type="url" class="form-control" placeholder="Full Url" aria-label="Url" aria-describedby="button-addon2">
+        <input type="url" class="form-control" placeholder="Full Url" aria-label="Url" aria-describedby="button-addon2" [formControl] = "fullurl">
         <div class="input-group-append">
-          <button class="btn btn-outline-info" type="button" id="button-addon2">Shorten</button>
+          <button class="btn btn-outline-info" type="button" id="button-addon2" (click)="shorten()">Shorten</button>
         </div>
     </div>
-    <div class="container-fluid row my-5 table-responsive ">
+    <div class="container-fluid row my-5 table-responsive" *ngIf="urls.length">
         <table class="table table-bordered table-striped">
             <thead class="text-center table-light text-black-50">
                 <tr>
@@ -31,13 +31,9 @@
                 </tr>
             </thead>
             <tbody class="text-center">
-                <tr scope='row'>
-                    <td>huh</td>
-                    <td>haha</td>
-                </tr>
-                <tr scope='row'>
-                    <td>hzhz</td>
-                    <td>haha</td>
+                <tr scope='row' *ngFor="let item of urls">
+                    <td><a [href]="item.fullurl" style="color: blue;">{{item.fullurl}}</a></td>
+                    <td>{{item.shorturl}}</td>
                 </tr>
             </tbody>
         </table>
