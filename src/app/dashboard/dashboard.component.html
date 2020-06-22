@@ -32,8 +32,8 @@
             </thead>
             <tbody class="text-center">
                 <tr scope='row' *ngFor="let item of urls">
-                    <td><a [href]="item.fullurl" style="color: blue;">{{item.fullurl}}</a></td>
-                    <td>{{item.shorturl}}</td>
+                    <td><a [href]="item.fullurl" target="_blank" style="color: rgba(28, 3, 34, 0.356); text-decoration: underline;">{{item.fullurl}}</a></td>
+                    <td><a [href]="item.shorturl"target="_blank" style="color:rgb(4, 61, 23);text-decoration: underline;">{{item.shorturl}}</a></td>
                 </tr>
             </tbody>
         </table>

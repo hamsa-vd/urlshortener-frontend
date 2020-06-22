@@ -22,13 +22,18 @@ export class NewPasswordComponent implements OnInit {
 	change() {
 		const id = this.route.params['value']['id'];
 		if (this.password.value && this.password.value == this.checkpass.value)
-			this.http.post('http://localhost:3000/api/changepass', { password: this.password.value, id }).subscribe(
-				(v) => {
-					this.toastr.success(v['msg']);
-					this.router.navigate([ 'login' ]);
-				},
-				(err) => this.toastr.error(err['error']['msg'])
-			);
+			this.http
+				.post('https://urlshortener-backend.herokuapp.com/api/changepass', {
+					password: this.password.value,
+					id
+				})
+				.subscribe(
+					(v) => {
+						this.toastr.success(v['msg']);
+						this.router.navigate([ 'login' ]);
+					},
+					(err) => this.toastr.error(err['error']['msg'])
+				);
 		else this.toastr.warning('passwords must match');
 	}
 }

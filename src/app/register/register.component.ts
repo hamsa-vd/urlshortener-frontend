@@ -32,7 +32,7 @@ export class RegisterComponent implements OnInit {
 			delete body['checkPassword'];
 			if (this.userdata.get('password').value == this.userdata.get('checkPassword').value)
 				this.http
-					.post('http://localhost:3000/api/register', body)
+					.post('https://urlshortener-backend.herokuapp.com/api/register', body)
 					.subscribe((v) => this.router.navigate([ 'login' ]), (err) => console.log(err));
 			else this.toastr.error("Passwords didn't match");
 		} else this.toastr.warning('All Fields are required');
