@@ -17,14 +17,14 @@ export class DashboardComponent implements OnInit {
 	ngOnInit(): void {
 		this.username = localStorage.getItem('username');
 		this.http
-			.get('http://localhost:3000/api/geturls', {
+			.get('https://urlshortener-backend.herokuapp.com/api/geturls', {
 				headers: { Authorization: 'Bearer ' + localStorage.getItem('token') }
 			})
 			.subscribe(
 				(v) => {
 					this.urls = v['data'].map((e) => ({
 						...e,
-						shorturl: `http://localhost:3000/go/${e.shorturl}`
+						shorturl: `https://urlshortener-backend.herokuapp.com/go/${e.shorturl}`
 					}));
 				},
 				(err) => this.toastr.info(err.error['msg'])
@@ -34,7 +34,7 @@ export class DashboardComponent implements OnInit {
 	shorten() {
 		this.http
 			.post(
-				'http://localhost:3000/api/posturls',
+				'https://urlshortener-backend.herokuapp.com/api/posturls',
 				{ fullurl: this.fullurl.value },
 				{ headers: { Authorization: 'Bearer ' + localStorage.getItem('token') } }
 			)
@@ -42,7 +42,7 @@ export class DashboardComponent implements OnInit {
 				(v) =>
 					(this.urls = v['data'].map((e) => ({
 						...e,
-						shorturl: `http://localhost:3000/go/${e.shorturl}`
+						shorturl: `https://urlshortener-backend.herokuapp.com/go/${e.shorturl}`
 					})))
 			);
 	}

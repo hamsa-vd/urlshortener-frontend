@@ -23,7 +23,7 @@ export class NewPasswordComponent implements OnInit {
 		const id = this.route.params['value']['id'];
 		if (this.password.value && this.password.value == this.checkpass.value)
 			this.http
-				.post('http://localhost:3000/api/changepass', {
+				.post('https://urlshortener-backend.herokuapp.com/api/changepass', {
 					password: this.password.value,
 					id
 				})
